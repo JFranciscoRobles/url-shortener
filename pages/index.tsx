@@ -1,10 +1,15 @@
 import React from "react";
-import { Button, Col, Container,  Row, Text } from "@nextui-org/react";
+import { Button, Col, Container,  Row, Spacer, Text } from "@nextui-org/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import ToggleTheme from "@/components/system/ToggleTheme";
 import ToggleLanguage from "@/components/system/i18n/ToggleLanguage";
 import { useLanguage } from "@/components/system/i18n/useLanguage";
+import dynamic from "next/dynamic";
+
+const QrComponent = dynamic(() => import("@/components/qr/QrComponent"), {
+	ssr: false,
+});
 
 const Home: NextPage = () => {
 
@@ -32,6 +37,10 @@ const Home: NextPage = () => {
 					</Row>
 					<Row justify="center">
 						<Button>Primary</Button>
+					</Row>
+					<Spacer y={2}/>
+					<Row justify="center">
+						<QrComponent/>
 					</Row>
 				</Col>
 			</Container>

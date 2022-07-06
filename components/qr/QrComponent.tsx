@@ -32,10 +32,7 @@ function QrComponent() {
 		e.preventDefault();
 		setUrl(e.target.value);
 	};
-    
-
-
-      
+	
 	return (
 		<Container>
 			<Grid.Container justify="center" gap={1}>

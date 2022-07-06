@@ -7,7 +7,8 @@ module.exports = {
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
-		"plugin:@typescript-eslint/recommended"
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@next/next/recommended"
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
@@ -38,5 +39,10 @@ module.exports = {
 			"error",
 			"always"
 		]
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	}
 };

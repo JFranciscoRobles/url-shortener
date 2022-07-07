@@ -1,55 +1,46 @@
-import { Card, Container, FormElement, Grid, Input } from "@nextui-org/react";
-import QRCodeStyling from "qr-code-styling";
-import React, { ChangeEvent, useEffect, useRef, useState } from "react";
+import QRCodeStyling, { DotType } from "qr-code-styling";
+import React, { useEffect, useRef } from "react";
 
-const qrCode = new QRCodeStyling({
-	width: 300,
-	height: 300,
-	dotsOptions: {
-		color: "black",
-		type: "dots",
-		
-	},
-	margin:10
-});
+const qrCode = new QRCodeStyling();
 
-function QrComponent() {
-	const [url, setUrl] = useState("https://hpsurl-shortener.vercel.app/es");
+type typeQrComponentProps = {
+	data: string
+	bgColor?: string,
+	fgColor?: string
+	width?: number,
+	height?: number,
+	margin?: number,
+	dotsType?: DotType,
+}
 
+function QrComponent(props:typeQrComponentProps) {
+	
 	const ref = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
 		if (ref.current != null) {
+			const options = qrCode._options;
+			options.width = props.width || 300;
+			options.height = props.height || 300;
+			options.margin = props.margin || 10;
+			options.dotsOptions.type = props.dotsType || "square";
+			options.backgroundOptions.color = props.bgColor || "white";
+			options.dotsOptions.color = props.fgColor || "black";
 			qrCode.append(ref.current);
 		}
 	}, []);
     
 	useEffect(() => {
 		qrCode.update({
-			data: url
+			data: props.data,
+			backgroundOptions: {
+				color:props.bgColor
+			}
 		});
-	}, [url]);
-    
-	const onUrlChange = (e:ChangeEvent<FormElement>) => {
-		e.preventDefault();
-		setUrl(e.target.value);
-	};
+	}, [props]);
 	
 	return (
-		<Container>
-			<Grid.Container justify="center" gap={1}>
-				<Grid xs={12} justify="center">
-					<Input size="lg"  css={{w:"300px"}} label="QrText" value={url} onChange={onUrlChange}  />
-				</Grid>
-				<Grid  justify="center">
-					<Card isHoverable>
-						<Card.Body>
-							<div  ref={ref} />
-						</Card.Body>
-					</Card>
-				</Grid>
-			</Grid.Container>
-		</Container>
+		<div ref={ref} />			
 	);
 }
 

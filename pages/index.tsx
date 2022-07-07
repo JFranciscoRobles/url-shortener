@@ -1,11 +1,10 @@
 import React from "react";
-import { Button, Col, Container,  Row, Spacer, Text } from "@nextui-org/react";
+import {  Col, Container,  Row, Spacer, Text } from "@nextui-org/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import ToggleTheme from "@/components/system/ToggleTheme";
-import ToggleLanguage from "@/components/system/i18n/ToggleLanguage";
 import { useLanguage } from "@/components/system/i18n/useLanguage";
 import dynamic from "next/dynamic";
+import Navbar from "@/components/layout/Navbar";
 
 const QrComponent = dynamic(() => import("@/components/qr/QrComponent"), {
 	ssr: false,
@@ -25,19 +24,12 @@ const Home: NextPage = () => {
 			<Container>
 				<Col>
 					<Row justify="center">
-						<Text h1>URL Shortener</Text>
-					</Row>
+						<Navbar/>
+					</Row>				
 					<Row justify="center">
-						<ToggleTheme />
-						<ToggleLanguage/>
+						<Text h1 css={{fontSize:"$xl4", textAlign:"center", lineHeight:"$xs"}}>{text.welcome__message}</Text>
 					</Row>
-				
-					<Row justify="center">
-						<Text h2>{text.welcome__message}</Text>
-					</Row>
-					<Row justify="center">
-						<Button>Primary</Button>
-					</Row>
+					
 					<Spacer y={2}/>
 					<Row justify="center">
 						<QrComponent/>

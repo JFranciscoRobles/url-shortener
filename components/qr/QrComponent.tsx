@@ -1,4 +1,4 @@
-import { Container, FormElement, Grid, Input } from "@nextui-org/react";
+import { Card, Container, FormElement, Grid, Input } from "@nextui-org/react";
 import QRCodeStyling from "qr-code-styling";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
@@ -6,9 +6,11 @@ const qrCode = new QRCodeStyling({
 	width: 300,
 	height: 300,
 	dotsOptions: {
-		color: "#black",
-		type: "rounded"
+		color: "black",
+		type: "dots",
+		
 	},
+	margin:10
 });
 
 function QrComponent() {
@@ -39,8 +41,12 @@ function QrComponent() {
 				<Grid xs={12} justify="center">
 					<Input size="lg"  css={{w:"300px"}} label="QrText" value={url} onChange={onUrlChange}  />
 				</Grid>
-				<Grid xs={12} justify="center">
-					<div ref={ref} />
+				<Grid  justify="center">
+					<Card isHoverable>
+						<Card.Body>
+							<div  ref={ref} />
+						</Card.Body>
+					</Card>
 				</Grid>
 			</Grid.Container>
 		</Container>

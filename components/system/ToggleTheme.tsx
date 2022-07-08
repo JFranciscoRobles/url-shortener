@@ -12,17 +12,17 @@ function ToggleTheme() {
 			{!isDark ? (
 				<Button
 					aria-label="Dark Mode"
-					light
+					icon={<BiSun size={18} />}
 					auto
-					icon={<BiSun />}
+					light
 					onClick={() => setTheme("dark")}
 				/>
 			) : (
 				<Button
 					aria-label="Light Mode"
-					light
+					icon={<BiMoon size={18} />}
 					auto
-					icon={<BiMoon />}
+					light
 					onClick={() => setTheme("light")}
 				/>
 			)}

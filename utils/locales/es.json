@@ -1,3 +1,6 @@
 {
-    "welcome__message": "Bienvenido a la aplicación de acortador de URL"
+    "welcome__message": "Bienvenido a la aplicación de acortador de URL",
+    "login": {
+        "button": "¡Accede ahora!"
+    }
 }

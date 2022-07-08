@@ -39,8 +39,17 @@ module.exports = {
 			"error",
 			"always"
 		],
-		"no-multiple-empty-lines":["error", { "max": 1, "maxEOF": 0 }]
-	},
+		"no-multiple-empty-lines":["error", { "max": 1, "maxEOF": 1 }],
+		"react/jsx-sort-props": [
+			2,
+			{
+				"callbacksLast": true,
+				"shorthandFirst": false,
+				"shorthandLast": true,
+				"ignoreCase": true,
+				"noSortAlphabetically": false
+			}
+		]},
 	"settings": {
 		"react": {
 			"version": "detect"

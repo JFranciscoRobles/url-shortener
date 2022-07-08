@@ -13,15 +13,15 @@ function ToggleLanguage() {
 	return (
 		<Button auto light onClick={() => handleClick()}>
 			<Text
-				size={14}
 				css={{ fontWeight: locale === "en" ? "bold" : "normal" }}
+				size={18}
 			>
       EN
 			</Text>
     /
 			<Text
-				size={14}
 				css={{ fontWeight: locale === "es" ? "bold" : "normal" }}
+				size={18}
 			>
       ES
 			</Text>

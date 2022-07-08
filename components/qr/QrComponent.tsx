@@ -36,6 +36,7 @@ function QrComponent(props:typeQrComponentProps) {
 			backgroundOptions: {
 				color:props.bgColor
 			}
+			
 		});
 	}, [props]);
 	

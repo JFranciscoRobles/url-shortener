@@ -2,9 +2,10 @@ import React, { ChangeEvent } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "@/components/layout/Navbar";
-import { Container, FormElement, Grid, Input, Spacer, Text } from "@nextui-org/react";
+import { Card, Container, FormElement, Grid, Input, Text } from "@nextui-org/react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/system/i18n/useLanguage";
 const QrComponent = dynamic(() => import("@/components/qr/QrComponent"), {
 	ssr: false,
 });
@@ -13,6 +14,8 @@ const Home: NextPage = () => {
 
 	const [qrText, setQrText] = React.useState("https://hpsurl-shortener.vercel.app/es");
 	const [bgColor, setBgColor] = React.useState("#f6f6f6");
+
+	const {text} = useLanguage();
 
 	const onUrlChange = (e:ChangeEvent<FormElement>) => {
 		setQrText(e.target.value);
@@ -30,14 +33,15 @@ const Home: NextPage = () => {
 			</Head>
 			<Navbar/>
 			<Container>
-				<Grid.Container alignContent="center"  css={{ minHeight:"70vh"}} gap={2} >
-					<Grid css={{height:"fit-content"}} justify="center" md={6} xs={12}>
-						<Grid.Container gap={2}>
+				<Grid.Container alignContent="center"  css={{ minHeight:"80vh"}}  gap={2} justify="center" >
+					<Grid css={{height:"fit-content"}}  justify="center" md={6} xs={12}>
+						<Grid.Container  gap={2}>
+						
 							<Grid xs={12}>
-								<Text css={{ lineHeight: "$xs"}} h1>HPSURL a quick way to shorten links</Text>
+								<Text css={{ lineHeight: "$xs"}} h1>{text.home.title}</Text>
 							</Grid>
 							<Grid xs={12}>								
-								<Text css={{fontSize: "$xl2", lineHeight: "$sm"}} >A modern url shortener built with powerful tools for you.</Text>
+								<Text css={{fontSize: "$xl2", lineHeight: "$sm"}} >{text.home.description}</Text>
 							</Grid>
 							<Grid xs={12}>								
 								<Input  css={{w:"100%"}} labelLeft="Your Link" size="lg"  type={"text"} value={qrText}  onChange={onUrlChange}/>
@@ -50,11 +54,9 @@ const Home: NextPage = () => {
 							transition={{ duration: 3, repeat: Infinity }}
 						>
 							<Grid.Container  gap={1}>
-								<Grid md={12} xs={0}>
-									<Spacer y={4}/>
-								</Grid>
+							
 								<Grid justify="center" xs={12}>
-									<Text css={{ lineHeight: "$xs", fontSize:"$xl5", textAlign:"center"}} b >Your new link</Text>
+									<Text css={{ lineHeight: "$xs", fontSize:"$xl4", textAlign:"center", fontWeight:"$bold"}}>{text.home.newlink}</Text>
 								</Grid>
 								<Grid justify="center" xs={12}>
 									<Text color="primary" size={20} transform="uppercase" b>https://hpsurl/GIOJRS01</Text>
@@ -72,6 +74,19 @@ const Home: NextPage = () => {
 					</Grid>
 				</Grid.Container>
 			</Container>
+			
+			<Card css={{borderRadius:0}}>
+				<Card.Body>
+					<Grid.Container >
+						<Grid justify="center" xs={12}>
+							<Text css={{fontSize:"$xl2"}} b>Hashnode x PlanetScale Hackathon</Text>
+						</Grid>
+						<Grid justify="center" xs={12}>
+							<Text css={{fontSize:"$lg"}}>Build an Open Source app with PlanetScale in July</Text>
+						</Grid>
+					</Grid.Container>
+				</Card.Body>
+			</Card>
 		</>
 	);
 };

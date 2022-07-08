@@ -1,6 +1,10 @@
 {
-    "welcome__message": "Bienvenido a la aplicación de acortador de URL",
     "login": {
         "button": "¡Accede ahora!"
+    },
+    "home": {
+        "title": "HPSURL una forma rápida de acortar enlaces",
+        "description": "Un acortador de URL moderno creado con potentes herramientas para ti.",
+        "newlink": "Tu nuevo enlace"
     }
 }

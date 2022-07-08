@@ -1,6 +1,10 @@
 {
-    "welcome__message": "Welcome to url shortoner app",
     "login": {
         "button": "Access Now!"
+    },
+    "home": {
+        "title": "HPSURL a quick way to shorten links",
+        "description": "A modern url shortener built with powerful tools for you.",
+        "newlink": "Your new link"
     }
 }

@@ -24,7 +24,7 @@ function QrComponent(props:typeQrComponentProps) {
 			options.height = props.height || 300;
 			options.margin = props.margin || 10;
 			options.dotsOptions.type = props.dotsType || "square";
-			options.backgroundOptions.color = props.bgColor || "white";
+			options.backgroundOptions.color = props.bgColor || "#f6f6f6";
 			options.dotsOptions.color = props.fgColor || "black";
 			qrCode.append(ref.current);
 		}

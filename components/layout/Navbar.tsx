@@ -22,10 +22,10 @@ function Navbar() {
 				<Grid alignContent="center" alignItems="center" justify={"flex-end"} xs={6} >
 					<ToggleTheme />
 					<ToggleLanguage/>
-					<Button size="md" auto>
+					<Button size="md" auto >
 						<NextLink href={"/login"} passHref>
 							<Link>
-								<Text color="white" size={18} transform="uppercase" b>{text.login.button}</Text>
+								<Text color="white" css={{letterSpacing:"$wider"}} size={16} transform="uppercase" b>{text.login.button}</Text>
 							</Link>
 						</NextLink>
 					</Button>

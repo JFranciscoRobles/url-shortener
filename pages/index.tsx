@@ -1,15 +1,26 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "@/components/layout/Navbar";
-import { Container, Grid, Input, Text } from "@nextui-org/react";
+import { Container, FormElement, Grid, Input, Spacer, Text } from "@nextui-org/react";
 import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 const QrComponent = dynamic(() => import("@/components/qr/QrComponent"), {
 	ssr: false,
 });
 
 const Home: NextPage = () => {
 
+	const [qrText, setQrText] = React.useState("https://hpsurl-shortener.vercel.app/es");
+	const [bgColor, setBgColor] = React.useState("#f6f6f6");
+
+	const onUrlChange = (e:ChangeEvent<FormElement>) => {
+		setQrText(e.target.value);
+	};
+
+	const onBgColorChange = (e:ChangeEvent<FormElement>) => {
+		setBgColor(e.target.value);
+	};
 	return (
 		<>
 			<Head>
@@ -26,25 +37,38 @@ const Home: NextPage = () => {
 								<Text css={{ lineHeight: "$xs"}} h1>HPSURL a quick way to shorten links</Text>
 							</Grid>
 							<Grid xs={12}>								
-								<Text css={{fontSize: "$xl2", lineHeight: "$sm"}} >A modern Url shortener built with powerful tools for you.</Text>
+								<Text css={{fontSize: "$xl2", lineHeight: "$sm"}} >A modern url shortener built with powerful tools for you.</Text>
 							</Grid>
 							<Grid xs={12}>								
-								<Input  css={{w:"80%"}} labelLeft="Your Link"  size="lg" type={"text"} value="https://hpsurl-shortener.vercel.app/es" />
+								<Input  css={{w:"100%"}} labelLeft="Your Link" size="lg"  type={"text"} value={qrText}  onChange={onUrlChange}/>
 							</Grid>
 						</Grid.Container>
 					</Grid>
 					<Grid css={{height:"fit-content"}} justify="center" md={6} xs={12}>
-						<Grid.Container gap={1}>
-							<Grid justify="center" xs={12}>
-								<Text css={{ lineHeight: "$xs"}} h1>Your new Link</Text>
-							</Grid>
-							<Grid justify="center" xs={12}>
-								<QrComponent data="https://hpsurl-shortener.vercel.app/es" height={200} width={200}/>
-							</Grid>
-							<Grid justify="center" xs={12}>
-								<Text color="primary" size={24}>https://hpsurl/GIOJRS01</Text>
-							</Grid>
-						</Grid.Container>
+						<motion.div
+							animate={{ y: [0, -20, 0] }}
+							transition={{ duration: 3, repeat: Infinity }}
+						>
+							<Grid.Container  gap={1}>
+								<Grid md={12} xs={0}>
+									<Spacer y={4}/>
+								</Grid>
+								<Grid justify="center" xs={12}>
+									<Text css={{ lineHeight: "$xs", fontSize:"$xl5", textAlign:"center"}} b >Your new link</Text>
+								</Grid>
+								<Grid justify="center" xs={12}>
+									<Text color="primary" size={20} transform="uppercase" b>https://hpsurl/GIOJRS01</Text>
+								</Grid>
+								<Grid justify="center" xs={12}>
+						
+									<QrComponent bgColor={bgColor} data={qrText} height={200} margin={10} width={200}/>
+							
+								</Grid>
+								<Grid justify="center" xs={12}>
+									<Input css={{w:"50%"}} initialValue="#f6f6f6"  size="lg" type={"color"}  onChange={onBgColorChange}/>
+								</Grid>
+							</Grid.Container>
+						</motion.div>
 					</Grid>
 				</Grid.Container>
 			</Container>

@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import { Card,  Grid, Text } from "@nextui-org/react";
 
 import Header from "@/components/landing/Header";
+import Services from "@/components/landing/Services";
 
 const Home: NextPage = () => {
 
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
 			</Head>
 			<Navbar/>
 			<Header/>
-			
+			<Services/>
 			<Card css={{borderRadius:0}}>
 				<Card.Body>
 					<Grid.Container >

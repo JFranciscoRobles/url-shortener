@@ -15,7 +15,7 @@ function Navbar() {
 				<Grid xs={6}>
 					<NextLink href={"/"} passHref>
 						<Link>
-							<Text size={24} b>HPSURL</Text>
+							<Text size={32} b>HPSURL</Text>
 						</Link>
 					</NextLink>
 				</Grid>

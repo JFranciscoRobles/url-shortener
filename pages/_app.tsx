@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { NextUIProvider }  from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { darkTheme, lightTheme } from "@/utils/themes";
+import Navbar from "@/components/layout/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 					dark: darkTheme.className,
 				}}
 			>
+				<Navbar/>
 				<Component {...pageProps} />
 			</NextThemesProvider>
 		</NextUIProvider>

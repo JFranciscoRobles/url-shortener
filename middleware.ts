@@ -6,6 +6,6 @@ export const config = {
 
 export function middleware(req: NextRequest) {
 	const { device } = userAgent(req);
-	const country = req.ip || "US";
-	console.log(country, device.type);
+	const country = req.geo?.country || "US";
+	console.log(country, device);
 }

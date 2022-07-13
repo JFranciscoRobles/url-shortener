@@ -24,7 +24,7 @@ function Dashboard():JSX.Element {
 								</Card.Header>
 								<Card.Body css={{p:0}}>
 									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-										4
+											4
 									</Text>
 								</Card.Body>
 							</Card>
@@ -36,7 +36,7 @@ function Dashboard():JSX.Element {
 								</Card.Header>
 								<Card.Body css={{p:0}}>
 									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-										4
+											4
 									</Text>
 								</Card.Body>
 							</Card>
@@ -48,7 +48,7 @@ function Dashboard():JSX.Element {
 								</Card.Header>
 								<Card.Body css={{p:0}}>
 									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-										MX
+											MX
 									</Text>
 								</Card.Body>
 							</Card>
@@ -60,7 +60,7 @@ function Dashboard():JSX.Element {
 								</Card.Header>
 								<Card.Body css={{p:0}}>
 									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-										Mobile
+											Mobile
 									</Text>
 								</Card.Body>
 							</Card>

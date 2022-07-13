@@ -3,7 +3,7 @@ import { Button, useTheme } from "@nextui-org/react";
 import { useTheme as useNextTheme } from "next-themes";
 import { BiSun, BiMoon } from "react-icons/bi";
 
-function ToggleTheme() {
+function ToggleTheme():JSX.Element {
 	const { setTheme } = useNextTheme();
 	const { isDark } = useTheme();
 

@@ -13,7 +13,7 @@ type typeQrComponentProps = {
 	dotsType?: DotType,
 }
 
-function QrComponent(props:typeQrComponentProps) {
+function QrComponent(props:typeQrComponentProps):JSX.Element {
 	
 	const ref = useRef<HTMLInputElement>(null);
 

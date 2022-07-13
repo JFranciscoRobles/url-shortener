@@ -2,7 +2,7 @@ import { Button, Text } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import React from "react";
 
-function ToggleLanguage() {
+function ToggleLanguage(): JSX.Element {
 	const { locale } = useRouter();
 	const router = useRouter();
 

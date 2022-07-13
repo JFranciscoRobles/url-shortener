@@ -7,7 +7,7 @@ const QrComponent = dynamic(() => import("@/components/qr/QrComponent"), {
 	ssr: false,
 });
 
-function Header() {
+function Header():JSX.Element {
     
 	const qrText = "https://hpsurl-shortener.vercel.app/es";
 	const bgColor = "#f6f6f6";
@@ -17,7 +17,7 @@ function Header() {
     
 	return (
 		<Container>
-			<Grid.Container alignContent="center"  css={{ minHeight:"60vh"}}  gap={2} justify="center" >
+			<Grid.Container alignContent="center"  css={{ minHeight:"90vh"}}  gap={2} justify="center" >
 				<Grid css={{height:"fit-content"}}  justify="center" md={6} xs={12}>
 					<Grid.Container  gap={2}>
 						<Grid xs={12}>

@@ -20,8 +20,13 @@ class MyDocument extends Document {
 	render() {
 		return (
 			<Html lang="en">
-				<Head>{CssBaseline.flush()}</Head>
-				<body>
+				<Head>
+					{CssBaseline.flush()}
+					<link href="https://fonts.googleapis.com" rel="preconnect"/>
+					<link crossOrigin="true" href="https://fonts.gstatic.com" rel="preconnect"/>
+					<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+				</Head>
+				<body style={{fontFamily: "'Inter', sans-serif"}}>
 					<Main />
 					<NextScript />
 				</body>

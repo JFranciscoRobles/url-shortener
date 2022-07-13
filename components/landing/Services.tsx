@@ -1,12 +1,12 @@
 import { Card, Container, Grid, Text, styled } from "@nextui-org/react";
 import React from "react";
 
-function Services() {
+function Services():JSX.Element {
 	return (
-		<Container>
-			<Grid.Container gap={2}>
+		<Container css={{p:0}}>
+			<Grid.Container css={{ minHeight:"90vh"}}  gap={2} >
 				{servicesData.map((service, index) => (
-					<Grid key={`${service.title}-A${index}`} sm={4} xs={12}>
+					<Grid css={{height:"65vh"}} key={`${service.title}-A${index}`} sm={4} xs={12}>
 						<Card css={{p:2}}>
 							<Card.Header>
 								<Text css={{textAlign:"center", w:"100%"}} h2>{service.title}</Text>

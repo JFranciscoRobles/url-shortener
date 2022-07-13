@@ -1,11 +1,8 @@
 import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Spacer } from "@nextui-org/react";
-
 import Header from "@/components/landing/Header";
 import Services from "@/components/landing/Services";
-import Footer from "@/components/landing/Footer";
 
 const Home: NextPage = () => {
 
@@ -18,8 +15,7 @@ const Home: NextPage = () => {
 			</Head>
 			<Header/>
 			<Services/>
-			<Spacer y={3}/>
-			<Footer/>
+			
 		</>
 	);
 };

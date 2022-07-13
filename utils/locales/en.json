@@ -1,6 +1,7 @@
 {
     "login": {
-        "button": "Access Now!"
+        "signOut": "Sign out",
+        "signIn": "Access Now!"
     },
     "home": {
         "title": "HPSURL a quick way to shorten links",

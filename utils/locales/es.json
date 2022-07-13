@@ -1,6 +1,7 @@
 {
     "login": {
-        "button": "¡Accede ahora!"
+        "signOut": "Cerrar Sesión",
+        "signIn": "¡Accede ahora!"
     },
     "home": {
         "title": "HPSURL una forma rápida de acortar enlaces",

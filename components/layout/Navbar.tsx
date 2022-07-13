@@ -1,13 +1,12 @@
-import { Button, Container, Grid, Link, Text } from "@nextui-org/react";
+import {  Container, Grid, Link, Text } from "@nextui-org/react";
 import NextLink from "next/link";
 import React from "react";
+import DashboardMenuLink from "../dashboard/DashboardMenuLink";
 import ToggleLanguage from "../system/i18n/ToggleLanguage";
-import { useLanguage } from "../system/i18n/useLanguage";
+import LoginButton from "../system/LoginButton";
 import ToggleTheme from "../system/ToggleTheme";
 
-function Navbar() {
-
-	const {text} = useLanguage();
+function Navbar():JSX.Element {
 	
 	return (
 		<Container css={{p:8}}>
@@ -22,13 +21,8 @@ function Navbar() {
 				<Grid alignContent="center" alignItems="center" justify={"flex-end"} xs={6} >
 					<ToggleTheme />
 					<ToggleLanguage/>
-					<Button size="md" auto >
-						<NextLink href={"/login"} passHref>
-							<Link>
-								<Text color="white" css={{letterSpacing:"$wider"}} size={16} transform="uppercase" b>{text.login.button}</Text>
-							</Link>
-						</NextLink>
-					</Button>
+					<DashboardMenuLink />
+					<LoginButton/>
 				</Grid>
 			</Grid.Container>
 		</Container>

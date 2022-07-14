@@ -1,9 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiResponse } from "next";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
-type Data = {
-    name: string
+export default async function ( res: NextApiResponse) {
+		
+	const allUsers = await prisma.user.findMany();
+      
+	res.status(200).json( allUsers);
 }
 
-export default function (req: NextApiRequest, res: NextApiResponse<Data>) {
-	res.status(200).json({ name: "Lead" });
-}

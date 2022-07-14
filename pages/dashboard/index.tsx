@@ -4,68 +4,36 @@ import { Button, Card, Container, Grid, Table, Text } from "@nextui-org/react";
 import React from "react";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 import { GetServerSideProps } from "next";
+import SectionTitle from "@/components/dashboard/SectionTitle";
 
 function Dashboard():JSX.Element {
 	return (
 		<Container css={{p:4}} sm>
 			<Grid.Container gap={2}>
-				<Grid justify="center" xs={12}>
-					<Text css={{fontSize:"$xl4"}} b>My Links</Text>
+				<Grid xs={12}>
+					<SectionTitle title="Dashboard" />
 				</Grid>
 				<Grid justify="flex-end" xs={12}>
 					<Button size={"sm"}>New Link</Button>
 				</Grid>
-				<Grid justify="center" xs={12}>
-					<Grid.Container css={{p:4}} gap={2}>
-						<Grid justify="center" md={3} xs={12}>
-							<Card >
-								<Card.Header>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl", fontWeight:"$semibold"}} >Total clicks</Text>
-								</Card.Header>
-								<Card.Body css={{p:0}}>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-											4
-									</Text>
-								</Card.Body>
-							</Card>
-						</Grid>
-						<Grid justify="center" md={3} xs={12}>
-							<Card isHoverable isPressable>
-								<Card.Header>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl", fontWeight:"$semibold"}}  >Total clicks / Month</Text>
-								</Card.Header>
-								<Card.Body css={{p:0}}>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-											4
-									</Text>
-								</Card.Body>
-							</Card>
-						</Grid>
-						<Grid justify="center" md={3} xs={12}>
-							<Card isHoverable isPressable>
-								<Card.Header>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl", fontWeight:"$semibold"}}  >Most Region</Text>
-								</Card.Header>
-								<Card.Body css={{p:0}}>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-											MX
-									</Text>
-								</Card.Body>
-							</Card>
-						</Grid>
-						<Grid justify="center" md={3} xs={12}>
-							<Card isHoverable isPressable>
-								<Card.Header>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl", fontWeight:"$semibold"}}  >Most Device</Text>
-								</Card.Header>
-								<Card.Body css={{p:0}}>
-									<Text css={{textAlign:"center", w:"100%", fontSize:"$xl3"}} b>
-											Mobile
-									</Text>
-								</Card.Body>
-							</Card>
-						</Grid>
-					</Grid.Container>
+				<Grid xs={12}>
+					<Card css={{p:"$md"}}> 	<Container css={{p:4}}>
+						<SectionTitle title={"Analitica"}/>
+						<Grid.Container css={{textAlign:"center"}} gap={2} >
+							<Grid justify="center" sm={3} xs={12}>
+								<Text css={{color:"$accents8", fontSize:"$xs"}} transform="uppercase" b >Clicks<Text>112</Text> </Text>
+							</Grid>
+							<Grid justify="center"  sm={3} xs={12}>
+								<Text css={{color:"$accents8", fontSize:"$xs"}} transform="uppercase" b > Clicks / Last 30 Days<Text >30</Text> </Text>
+							</Grid>
+							<Grid justify="center"  sm={3} xs={12}>
+								<Text css={{color:"$accents8", fontSize:"$xs"}} transform="uppercase" b >Most Region<Text>MX</Text> </Text>
+							</Grid>
+							<Grid justify="center" sm={3} xs={12}>
+								<Text css={{color:"$accents8", fontSize:"$xs"}} transform="uppercase" b >Most Device<Text>Mobile</Text> </Text>
+							</Grid>
+						</Grid.Container>
+					</Container></Card>
 				</Grid>
 				<Grid justify="center" xs={12}>
 					<Table

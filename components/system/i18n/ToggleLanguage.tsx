@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 import React from "react";
 
 function ToggleLanguage(): JSX.Element {
-	const { locale } = useRouter();
+	const { locale, pathname } = useRouter();
 	const router = useRouter();
 
 	const handleClick = () => {
-		router.push("/", "/", { locale: locale === "en" ? "es" : "en" });
+		router.push(pathname, pathname, { locale: locale === "en" ? "es" : "en" });
 	};
   
 	return (

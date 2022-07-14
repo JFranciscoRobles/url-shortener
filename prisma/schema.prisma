@@ -58,7 +58,10 @@ model Link {
 model Lead {
   id          String   @id @default(cuid())
   ip          String?  @db.Text
-  countClicks Int      @default(0)
+  country     String?  @db.Text
+  city        String?  @db.Text
+  browserName String?  @db.Text
+  deviceType  String?  @db.Text
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
   Link        Link?    @relation(fields: [linkId], references: [id], onDelete: Cascade)

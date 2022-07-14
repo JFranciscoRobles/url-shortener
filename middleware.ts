@@ -7,11 +7,13 @@ export const config = {
 
 export function middleware(req: NextRequest) {
 	const { device, browser } = userAgent(req);
+	const ip = req.ip || "Unknown";
 	const country = req.geo?.country || "Unknown";
 	const city = req.geo?.city || "Unknown";
 	const browserName = browser.name || "Unknown";
 	const deviceType = device.type || "PC";
 	console.log({
+		ip,
 		country,
 		city,
 		browserName,

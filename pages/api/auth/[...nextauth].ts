@@ -11,18 +11,22 @@ export const authOptions: NextAuthOptions = {
 	secret: process.env.NEXTAUTH_SECRET,
 	providers: [
 		GitHubProvider({
-			clientId: process.env.GITHUB_ID,
-			clientSecret: process.env.GITHUB_SECRET
+			clientId: process.env.GITHUB_ID || "",
+			clientSecret: process.env.GITHUB_SECRET || ""
 		})
 	],
+	session: {
+		strategy:"jwt"
+	},
 	callbacks: {
-		async jwt({ token, account }) {
-			if (account) {
-				token.accessToken = account.access_token;
-			}
+		jwt: async ({ token, user }) => {
+			user && (token.user = user);
 			return token;
 		},
-	
+		session: async ({ session, token }) => {
+			session.user.id = token.user.id;
+			return session;
+		}
 	}
 };
 

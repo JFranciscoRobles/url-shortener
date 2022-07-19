@@ -1,7 +1,7 @@
 import {  Container, Grid, Link, Text } from "@nextui-org/react";
 import NextLink from "next/link";
 import React from "react";
-import DashboardMenuLink from "../dashboard/DashboardMenuLink";
+import DashboardMenuLink from "./DashboardMenuLink";
 import ToggleLanguage from "../system/i18n/ToggleLanguage";
 import LoginButton from "../system/LoginButton";
 import ToggleTheme from "../system/ToggleTheme";
